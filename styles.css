@@ -1,0 +1,154 @@
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+
+    margin: 0;
+    background-color: #E9EDF2;
+
+}
+
+main {
+
+    width: 375px;
+    margin: 0 auto;
+    
+}
+
+header {
+
+    background-color: white;
+}
+
+.nav-menu {
+
+    display: none;
+}
+
+nav {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 25px;
+    
+}
+
+
+.img-container {
+
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 30px;
+
+}
+
+.img-container img {
+
+    width: 100%;
+    
+
+}
+
+.top-container {
+
+    overflow: hidden;
+}
+
+.content-container, .card-container, .statistics-container, .purple-section, .footer-section {
+
+
+    text-align: center;
+}
+
+nav, .middle-section, .content-container {
+
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.shorten-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.shorten-container {
+
+padding: 15px;
+background-color: white;
+border-radius: 5px;
+
+}
+
+.shorten-container:first-of-type {
+
+padding: 20px;    
+border-radius: 10px;
+background-image: url(./images/bg-shorten-mobile.svg);
+background-repeat: no-repeat;
+background-position: top right;
+background-color: hsl(257, 27%, 26%);
+
+    
+}
+.shorten-container button, input {
+
+    width: 100%;
+}
+
+input {
+
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.middle-section {
+
+}
+
+#submit-btn {
+
+
+    padding: 11px 20px 11px 20px;
+    font-weight: 700;
+    font-size: 1em;
+
+}
+
+
+button {
+
+    padding: 8px 20px 8px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: hsl(180, 66%, 49%);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.url {
+
+    border-bottom: 1px solid lightgray;
+    
+    padding-bottom: 7px;
+}
+
+.link {
+
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color:hsl(180, 66%, 49%);
+}
