@@ -20,6 +20,7 @@ main {
 header {
 
     background-color: white;
+    padding-bottom: 150px;
 }
 
 .nav-menu {
@@ -92,9 +93,17 @@ background-image: url(./images/bg-shorten-mobile.svg);
 background-repeat: no-repeat;
 background-position: top right;
 background-color: hsl(257, 27%, 26%);
+display: block;
 
     
 }
+
+.shorten-container {
+
+    display: none;
+
+}
+
 .shorten-container button, input {
 
     width: 100%;
@@ -105,6 +114,7 @@ input {
     box-sizing: border-box;
     padding: 8px;
     border-radius: 5px;
+    outline: none;
 }
 
 form {
@@ -115,6 +125,8 @@ form {
 }
 
 .middle-section {
+
+    margin-top: -65px;
 
 }
 
@@ -151,4 +163,105 @@ button {
     padding-top: 7px;
     padding-bottom: 7px;
     color:hsl(180, 66%, 49%);
+}
+
+.statistics-container {
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+.card-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.card {
+
+    background-color: white;
+    border-radius: 5px;
+    padding: 50px 35px 25px 35px;
+
+    
+}
+
+.img-mask {
+
+    background-color: hsl(257, 27%, 26%);
+    width: 40px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 50%;
+    margin-top: -85px;
+    
+}
+
+.img-mask img {
+
+    width: 30px;
+}
+
+.card h3 {
+
+    margin-top: 25px;
+
+}
+
+.purple-section {
+
+    background-image: url(./images/bg-boost-mobile.svg);
+    background-color: hsl(257, 27%, 26%);
+    background-repeat: no-repeat;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin-top: 80px;
+    background-position-y: -40px ;
+}
+
+.purple-section h2 {
+
+    color: white;
+    font-size: 1.2em;
+}
+
+
+.footer-section {
+
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.884);
+}
+
+#white-logo {
+    filter: brightness(0) invert(1);
+
+
+}
+
+.footer-section h4 {
+
+    color: white;
+    font-size: .9em;
+
+}
+
+.links-container {
+
+    margin-top: 35px;
+}
+
+.footer-section a {
+    color: hsl(0, 0%, 75%);
+    displaY: flex;
+    justify-content: center;
+    line-heighT: 35px;
+    font-size: .9em;
+}
+
+.footer-section a:hover {
+
+    color: white;
+    cursor: pointer;
 }
