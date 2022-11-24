@@ -12,7 +12,7 @@ body {
 
 main {
 
-    width: 375px;
+    width: 100%;
     margin: 0 auto;
     
 }
@@ -21,12 +21,120 @@ header {
 
     background-color: white;
     padding-bottom: 150px;
+    overflow: hidden;
+
+}
+
+h1 {
+
+    font-size: 2.5em;
+    line-height: 45px;
+    margin-bottom: 0;
+}
+
+
+p {
+
+    color: hsl(0, 0%, 65%);
+}
+
+.content-container {
+
+max-width: 540px !important;
+
 }
 
 .nav-menu {
 
+    display: flex;
+    flex-direction:column;
+    width: 325px;
+    border-radius: 10px;
+    background-color: hsl(257, 27%, 26%);
+}
+
+#menu-btn {
+
+    margin: 0 auto;
+    display: flex;
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: 700;
+    font-size: 1.1em;
+    
+}
+
+    #child-one {
+
+        border-bottom: 1px solid rgba(211, 211, 211, 0.247);
+    }
+
+.nav-menu a{
+
+    display: flex;
+    justify-content: center;
+    line-height: 50px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.nav-menu-child {
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+    
+}
+
+.nav-wrapper {
+
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 75px;
+    display: flex;
+    justify-content: center;
+    display: none;
+    z-index: 2;
+}
+
+.toggle {
+
+    display: flex;
+}
+
+.active {
+
+    display: flex !important;
+}
+
+.modal {
+    
+    width: 100%;
+    position: fixed;
+    /* Stay in place */
+    /* Sit on top */
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,0.47102591036414565) 54%, rgba(0,0,0,0) 98%);
+    /* Black w/ opacity */
     display: none;
 }
+
 
 nav {
 
@@ -34,28 +142,45 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding-top: 25px;
-    
+    position: relative;
+}
+
+#error {
+
+    color:hsl(0, 87%, 67%);
+    font-weight: 500;
+    font-size: .75em;
+    margin-top: 5px;
+
 }
 
 
 .img-container {
 
-    width: 500px;
-    margin-left: 20px;
-    margin-top: 30px;
-
+    
+    margin-top: 15px;
+    padding-bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .img-container img {
 
-    width: 100%;
-    
+    width: 500px;
+    margin-right: -180px;
 
+}
+
+#middle-para {
+
+    max-width: 476px;
+    margin: 0 auto;
 }
 
 .top-container {
 
-    overflow: hidden;
+    
 }
 
 .content-container, .card-container, .statistics-container, .purple-section, .footer-section {
@@ -64,17 +189,28 @@ nav {
     text-align: center;
 }
 
-nav, .middle-section, .content-container {
+nav, .middle-section, .content-container, .top-container {
 
     padding-left: 25px;
     padding-right: 25px;
+    max-width: 1140px;
+    margin: 0 auto;
 }
+
+.content-container {
+
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
 
 .shorten-wrapper {
 
     display: flex;
     flex-direction: column;
     gap: 25px;
+    
 }
 
 .shorten-container {
@@ -95,6 +231,8 @@ background-position: top right;
 background-color: hsl(257, 27%, 26%);
 display: block;
 
+
+
     
 }
 
@@ -112,7 +250,7 @@ display: block;
 input {
 
     box-sizing: border-box;
-    padding: 8px;
+    padding: 11px 8px 11px 15px;
     border-radius: 5px;
     outline: none;
 }
@@ -122,6 +260,8 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    
+    
 }
 
 .middle-section {
@@ -151,6 +291,11 @@ button {
     font-weight: 500;
 }
 
+button:hover {
+
+    background-color: hsl(180, 66%, 69%);
+}
+
 .url {
 
     border-bottom: 1px solid lightgray;
@@ -167,8 +312,8 @@ button {
 
 .statistics-container {
 
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 
@@ -177,6 +322,19 @@ button {
     display: flex;
     flex-direction: column;
     gap: 80px;
+    position: relative;
+}
+
+.line {
+
+    position: absolute;
+    top: 0;
+    left: 49.7%;
+    height: 100%;
+    z-index: -1;
+    padding-left: 4px;
+    padding-right: 2px;
+    background-color: hsl(180, 66%, 49%);
 }
 
 .card {
@@ -215,10 +373,11 @@ button {
     background-image: url(./images/bg-boost-mobile.svg);
     background-color: hsl(257, 27%, 26%);
     background-repeat: no-repeat;
-    padding-top: 75px;
-    padding-bottom: 75px;
+    padding-top: 44px;
+    padding-bottom: 44px;
     margin-top: 80px;
     background-position-y: -40px ;
+    background-position-x: right ;
 }
 
 .purple-section h2 {
@@ -264,4 +423,407 @@ button {
 
     color: white;
     cursor: pointer;
+}
+
+.icon-container {
+
+    padding-top: 35px;
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.icon-container img {
+
+    width: 20px;
+    cursor: pointer;
+}
+
+.icon-container img:hover {
+
+    filter: invert(77%) sepia(97%) saturate(697%) hue-rotate(132deg) brightness(1907%) contrast(85%);
+
+}
+
+#hamburger {
+
+    cursor:pointer;
+}
+
+
+@media screen and (min-width: 805px) {
+
+
+    #child-one {
+
+        border-bottom: none;
+        display: flex;
+        gap: 40px;
+        margin-left: 40px;
+    }
+
+    .nav-wrapper {
+
+        display: flex;
+        position: unset;
+        
+    }
+
+    .nav-menu {
+
+        flex-direction: row;
+        width: 100%;
+        border-radius: 0px;
+        background: none;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+
+    .nav-menu a {
+
+        color: rgba(0, 0, 0, 0.493);
+        font-size: 1em !important;
+    }
+    
+    .nav-menu a:hover {
+    
+        color: black;
+        cursor: pointer;
+    }
+    
+    .nav-menu a{
+    
+        display: inline-block;
+        justify-content: center;
+        
+        /* line-height: 0px; */
+        font-size: 1.1em;
+        font-weight: 700;
+        
+    }
+    
+    .nav-menu-child {
+    
+        padding-top: 0px;
+        padding-bottom: 0px;
+        
+        
+    }
+    
+    #child-two {
+    
+        display: flex;
+        gap:40px;
+    }
+    
+    #menu-btn {
+
+        margin: 0 auto;
+        display: flex;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-weight: 700;
+        font-size: 1.1em;
+        height: 46px !important;
+        width: 150px !important;
+    }
+
+    #hamburger {
+
+        display: none;
+    }
+
+}
+
+
+
+@media screen and (min-width: 700px) {
+
+form {
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#input-box {
+
+    position: relative;
+}
+
+#error {
+
+    position: absolute;
+    
+    bottom: -25px;
+
+}
+
+
+
+
+#input-box {
+
+    width: 100%;
+}
+
+
+
+
+#submit-btn {
+
+    height: 46px;
+    width: 150px;
+}
+
+
+
+.shorten-container {
+
+    
+    padding: 45px 45px 45px 45px !important;
+}
+
+
+.top-container {
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    
+    
+
+}
+
+
+
+.content-container {
+
+    text-align: left;
+    margin-left: 0;
+    
+}
+
+
+
+}
+
+
+@media screen and (min-width: 970px) {
+
+   
+
+    nav {
+
+        padding-top:50px;
+    }
+
+    button {
+
+        height: 46px !important;
+    width: 150px !important;
+    font-weight: 700 !important;
+    font-size: 1em !important;
+    }
+
+
+    .purple-section {
+
+        background-image: none;
+        background-image: url(./images/bg-boost-desktop.svg);
+        background-position: bottom right ;
+    }
+
+    #boosth2 {
+
+        font-size: 2.25em;
+
+    }
+
+    .content-container {
+
+    }
+
+    p:first-of-type {
+        margin-top: 0;
+        /* font-size: 1.3em; */
+    }
+
+    #firstp {
+
+        font-size: 1.3em;
+    }
+
+
+    h1 {
+
+        font-size: 4.5em;
+        line-height: 85px;
+        
+    }
+
+    .img-container img {
+
+        margin-right: -250px;
+        width: 700px;
+    }
+    .img-container {
+
+        margin: 0;
+        width: 50%;
+        
+    }
+
+    .top-container {
+
+    }
+
+    .footer-section {
+
+        padding-bottom: 50px;
+    }
+
+    .footer-content-container{
+
+        display: flex;
+        justify-content:space-between;
+        align-items:flex-start;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    .icon-container {
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: flex;
+}
+
+    .links-container {
+
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        gap: 105px;
+        align-items: flex-start;
+    }
+
+    .footer-section a {
+        displaY: flex;
+        justify-content: left;
+        
+        font-size: 1em;
+    }
+
+    h4 {
+
+        text-align: left;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    /* .icon-container img {
+
+        width: 25px;
+    } */
+
+}
+
+@media screen and (min-width: 1140px) {
+
+
+
+    .line {
+
+        width: 99%;
+        left: 0;
+        height: 6px;
+        top: 55%;
+        padding: 0;
+    }
+
+    .card-container {
+
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .card {
+
+        text-align: left;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    #card-2 {
+
+        margin-top: 40px;
+        margin-bottom: -40px;
+        
+
+    }
+
+    #card-3 {
+
+        margin-top: 80px;
+        margin-bottom: -80px;
+    }
+
+    .purple-section {
+
+        margin-top: 200px;
+    }
+
+     .icon-container img {
+
+        width: 25px;
+    } 
+
+    
+    
+/* .links-container {
+
+    margin-left: 150px;
+    gap: 100px;
+}
+
+*/
+
+
+/* .footer-content-container{
+
+   
+    gap: 260px;
+} 
+     */
+
+
+}
+
+
+@media screen and (min-width: 1440px) {
+
+   
+
+
+    .img-container img {
+
+        margin-right: -250px;
+        width: 700px;
+    }
+
 }

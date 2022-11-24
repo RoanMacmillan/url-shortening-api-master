@@ -28,21 +28,23 @@
 
         <img src="./images/logo.svg" alt="logo">
 
+        <div id="menu" class="nav-wrapper">
+
         <div class="nav-menu">
 
-          <div class="nav-menu-child">
+          <div id="child-one" class="nav-menu-child">
 
             <a>Features</a>
-            <a>Features</a>
-            <a>Features</a>
+            <a>Pricing</a>
+            <a>Resources</a>
 
 
           </div>
 
-          <div class="nav-menu-child">
+          <div id="child-two" class="nav-menu-child">
 
-            <a>Features</a>
-            <button>Sign Up</button>
+            <a>Login</a>
+            <button id="menu-btn">Sign Up</button>
 
 
 
@@ -50,9 +52,11 @@
 
         </div>
 
+        </div>
+
         <div class="hamburger-container">
 
-          <img class="hamburger" src="./images/icon-hamburger.svg">
+          <img id="hamburger" class="hamburger" src="./images/icon-hamburger.svg">
 
 
 
@@ -73,7 +77,7 @@
         <div class="content-container">
 
           <h1>More than just shorter links</h1>
-          <p>Build your brand’s recognition and get detailed insights on how your links are performing.</p>
+          <p id="firstp">Build your brand’s recognition and get detailed insights on how your links are performing.</p>
           <button>Get Started</button>
 
         </div>
@@ -91,13 +95,15 @@
 
         <form>
 
-            <div class="form-child">
+            <div id="input-box" class="form-child">
             <label for="shorten"></label>
             
             <input type="text" id="shorten" placeholder="Shorten a link here...">
+            <div id="error"><i id="ierror"></i></div>
+
             </div>
 
-            <div class="form-child">
+            <div id="shorten-btn" class="form-child">
 
             <button id="submit-btn" type="submit">Shorten it!</button>
 
@@ -142,13 +148,15 @@
       <div class="statistics-container">
 
         <h2>Advanced Statistics</h2>
-        <p>Track how your links are performing across the web with our
+        <p id="middle-para">Track how your links are performing across the web with our
           advanced statistics dashboard.</p>
 
       </div>
 
       <div class="card-container">
 
+
+        <div class="line"></div>
 
         <div class="card">
 
@@ -163,7 +171,7 @@
 
         </div>
 
-        <div class="card">
+        <div id="card-2" class="card">
 
           <div class="img-mask">
             <img src="./images/icon-brand-recognition.svg">
@@ -175,7 +183,7 @@
 
         </div>
 
-        <div class="card">
+        <div id="card-3" class="card">
 
           <div class="img-mask">
             <img src="./images/icon-brand-recognition.svg">
@@ -200,7 +208,7 @@
     <div class="purple-section">
 
 
-      <h2>Boost your links today</h2>
+      <h2 id="boosth2">Boost your links today</h2>
 
       <button>Get Started</button>
 
@@ -211,8 +219,11 @@
 
       <div class="footer-content-container">
 
+        <div>
 
         <img id='white-logo' src="./images/logo.svg">
+
+        </div>
 
         <div class="links-container">
 
@@ -228,43 +239,46 @@
 
           <div class="links-child">
 
-            <h4>Features</h4>
+            <h4>Resources</h4>
   
-            <a>Link Shortening</a>
-            <a>Branded Links</a>
-            <a>Analytics</a>
+            <a>Blog</a>
+            <a>Developers</a>
+            <a>Support</a>
   
             </div>
 
             <div class="links-child">
 
-              <h4>Features</h4>
+              <h4>Company</h4>
     
-              <a>Link Shortening</a>
-              <a>Branded Links</a>
-              <a>Analytics</a>
+              <a>About</a>
+              <a>Our Team</a>
+              <a>Careers</a>
+              <a>Contact</a>
     
               </div>
 
               <div class="icon-container">
 
-
+               
+                
                 <img src="./images/icon-facebook.svg" alt="bg">
                 <img src="./images/icon-twitter.svg" alt="bg">
                 <img src="./images/icon-pinterest.svg" alt="bg">
                 <img src="./images/icon-instagram.svg" alt="bg"> 
-      
+                  
       
       
                 
       
       
               </div>
-
+              
 
         </div>
 
-
+        
+        
 
       </div>
 
@@ -305,7 +319,11 @@
     Careers
     Contact -->
 
+    <div id="modal" class="modal"></div>
+
   </main>
+
+  <script src="./main.js"></script>
 
 </body>
 
