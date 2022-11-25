@@ -48,7 +48,7 @@ max-width: 540px !important;
 
     display: flex;
     flex-direction:column;
-    width: 325px;
+    width: 87%;
     border-radius: 10px;
     background-color: hsl(257, 27%, 26%);
 }
@@ -232,7 +232,9 @@ display: block;
 
 .result-container {
 
-    
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -247,7 +249,8 @@ display: block;
     padding: 20px;
     border-radius: 5px;
     background-color: white;
-    
+    display: flex;
+    flex-direction: column;
 
 } 
 
@@ -257,6 +260,8 @@ display: block;
 
     width: 100%;
 }
+
+
 
 .shorten-container button, input {
 
@@ -471,6 +476,12 @@ button:hover {
 @media screen and (min-width: 805px) {
 
 
+
+    .modal {
+
+        display: none !important;
+    }
+
     #child-one {
 
         border-bottom: none;
@@ -564,22 +575,31 @@ button:hover {
 @media screen and (min-width: 700px) {
 
 
+    .search-result {
 
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
     
 
 
     .result-container {
 
-        display: flex;
+        
         align-items: center;
-        justify-content: space-between;
-        padding: 15px 20px 15px 20px;
+        padding: 0px 20px 0px 20px;
+        
     }
 
     .result-container button {
 
         
-        padding: 5px 25px 5px 25px;
+        padding: 7px 0px 7px 0px;
+        width: 100px !important;
     }
 
     .url, .link {
@@ -597,8 +617,6 @@ button:hover {
 
     .result-container button {
 
-        width:unset;
-        
 
     }
 
@@ -698,8 +716,9 @@ form {
 
     .result-container button {
 
-        width:unset !important;
         height: unset !important;
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
         font-weight: 500 !important;
         font-size: .9em !important;
     }

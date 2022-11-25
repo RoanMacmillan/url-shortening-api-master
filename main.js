@@ -1,6 +1,4 @@
-
 // Mobile Menu //
-
 
 // Open / close menu when clicking hamburger //
 
@@ -13,11 +11,9 @@ document.getElementById('hamburger').addEventListener('click' ,  () => {
 menu.classList.toggle('toggle');
 modal.classList.toggle('active');
 
-
 })
 
 // close menu when clicking outside //
-
 
 modal.addEventListener('click', (e) => {
 
@@ -30,114 +26,61 @@ modal.addEventListener('click', (e) => {
   modal.classList.remove('active');
   menu.classList.remove('toggle');
   
-
-  
   }
   })
 
 
+  ///// Url shortening /////
 
+  // Submit form // 
 
-  // Form validation // 
+    const input = document.getElementById('shorten');
+    const errorMsg = document.getElementById('ierror');
 
-  const input = document.getElementById('shorten');
+document.addEventListener('submit', (e) => {
 
-const errorMsg = document.getElementById('ierror');
+    e.preventDefault();
 
+    // If valid URL is entered api function is called //
 
-// document.addEventListener('submit', (e) => {
+  if (input.value.length > 0) {
 
+    if (/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(input.value)) {
 
-//   if (input.value.length > 0) {
+      errorMsg.textContent = '';
+      input.style.border = 'none';
+      input.style.color = 'black';
+      apiFunc();
 
-//     if (/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(input.value)) {
+    // displays error message if invalid input //
 
-//       errorMsg.textContent = '';
-//       input.style.border = 'none';
-//       input.style.color = 'black';
-//       e.preventDefault();
-
-//       apiFunc();
-
-
-
-//     } else {
-
-//       errorMsg.textContent = 'Please add a link';
-//       input.style.border = ' 2px solid hsl(0, 87%, 67%)';
-//       input.style.color = 'hsl(0, 87%, 67%)';
-//       e.preventDefault();
-//     }
-
-//   } else {
-
-//     errorMsg.textContent = 'Please add a link';
-//     input.style.border = ' 2px solid hsl(0, 87%, 67%)';
-//     e.preventDefault();
-
-
-
-
-//   }
-
-
-// })
-
-
-
-
-function urlValidation(defaultUrl) {
-    const urlRule =
-      /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-    if (defaultUrl.match(urlRule)) {
-      return true;
     } else {
-      return false;
+
+      errorMsg.textContent = 'Please add a link';
+      input.style.border = ' 2px solid hsl(0, 87%, 67%)';
+      input.style.color = 'hsl(0, 87%, 67%)';
     }
+
+    // displays error message if input is empty //
+
+  } else {
+
+    errorMsg.textContent = 'Please add a link';
+    input.style.border = ' 2px solid hsl(0, 87%, 67%)';
+
   }
 
+})
 
 
 
+// Shorten links function // 
 
-
-
-
-
-
-
-// Shorten links // 
-
-
-const insertedLink = document.querySelector('.url');
 const shortlyResult = document.querySelector('.hidden-result');
-const shortenedUrl = document.querySelector('.link');
 const parentNode = document.querySelector('.result-container');
 const shortenBtn = document.getElementById('submit-btn');
 
-
-
-const apiFunc = shortenBtn.addEventListener('click', (e) => {
-
-
-
-  //URL Validation
-  if (!urlValidation(input.value)) {
-    // alert("Please enter a valid URL!");
-    
-    errorMsg.textContent = 'Please add a link';
-    input.style.border = ' 2px solid hsl(0, 87%, 67%)';
-    input.style.color = 'hsl(0, 87%, 67%)';
-    e.preventDefault();
-
-
-  } else {
-    
-    errorMsg.textContent = '';
-      input.style.border = 'none';
-      input.style.color = 'black';
-      e.preventDefault();
-
+  function apiFunc() {
 
     fetch(`https://api.shrtco.de/v2/shorten?url=` + input.value)
 
@@ -146,48 +89,64 @@ const apiFunc = shortenBtn.addEventListener('click', (e) => {
     
         if (response.ok) {
 
-
-            
-            
-    
             let shortlyCode = response.result.code;
-    
-            let mainClone = shortlyResult.cloneNode(true);
-    
-            mainClone.classList.replace('hidden-result', 'search-result');
 
-            sessionStorage.setItem("cloneCache", parentNode.innerHTML);
+          //Clones result 
+          let mainClone = shortlyResult.cloneNode(true);
+          mainClone.classList.replace("hidden-result", "search-result");
+
+          //Target clone child elements
+          let cloneLink = mainClone.querySelector(".url");
+
+          let cloneResultLink = mainClone.querySelector(".link");
+        
+          //Inserts value of input
+          cloneLink.textContent = `${input.value}`;
+
+          //Inserts the shortened link
+          cloneResultLink.textContent = `shrtco.de/${shortlyCode}`;
+
+          parentNode.appendChild(mainClone);
+
+
+          let cloneCopyBtn = mainClone.querySelector(".copy-btn");
+
+          // copies shortened link
+
+          cloneCopyBtn.addEventListener('click', () => {
+      
+              let copiedText = cloneResultLink.textContent;
+      
+              navigator.clipboard.writeText(copiedText);
+      
+              cloneCopyBtn.textContent = 'Copied!';
+              cloneCopyBtn.style.backgroundColor = 'hsl(257, 27%, 26%)';
             
-            let cloneLink = mainClone.querySelector(".url");
-            let cloneResultLink = mainClone.querySelector(".link");
-            let cloneCopyBtn = mainClone.querySelector(".copy-btn");
+              setTimeout(() => {
 
-            sessionStorage.setItem("cloneCopyBtn", cloneCopyBtn.outerHTML);
+                cloneCopyBtn.textContent = 'Copy';
+              cloneCopyBtn.style.backgroundColor = 'hsl(180, 66%, 49%)';
+                
+              }, 175);
 
-            cloneLink.textContent = `${input.value}`;
+    
+          })
 
-            sessionStorage.setItem("cloneLink", cloneLink.textContent);
 
-            cloneResultLink.textContent = `shrtco.de/${shortlyCode}`;
-
-            sessionStorage.setItem(
-                "cloneResultLink",
-                cloneResultLink.textContent
-              );
-
-              parentNode.appendChild(mainClone);
         }
     
     })
 
 
-
-
   }
 
+ 
+
+  
 
 
-})
+
+
 
 
 
