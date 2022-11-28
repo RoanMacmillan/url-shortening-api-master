@@ -50,6 +50,7 @@ document.addEventListener('submit', (e) => {
       errorMsg.textContent = '';
       input.style.border = 'none';
       input.style.color = 'black';
+
       loader();
       apiFunc();
 
@@ -83,6 +84,7 @@ function loader() {
     document.querySelector('.lds-dual-ring').style.display = 'flex';
 
 }
+
 
 
 

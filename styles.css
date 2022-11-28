@@ -446,7 +446,7 @@ button:hover {
 
 }
 
-.footer-section h4 {
+.footer-section h3 {
 
     color: white;
     font-size: .9em;
@@ -841,7 +841,7 @@ form {
         font-size: 1em;
     }
 
-    h4 {
+    h3 {
 
         text-align: left;
         margin: 0;
