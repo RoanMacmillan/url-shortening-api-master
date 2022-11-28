@@ -50,7 +50,10 @@ document.addEventListener('submit', (e) => {
       errorMsg.textContent = '';
       input.style.border = 'none';
       input.style.color = 'black';
+      loader();
       apiFunc();
+
+
 
     // displays error message if invalid input //
 
@@ -71,6 +74,16 @@ document.addEventListener('submit', (e) => {
   }
 
 })
+
+
+
+function loader() { 
+
+
+    document.querySelector('.lds-dual-ring').style.display = 'flex';
+
+}
+
 
 
 
@@ -95,27 +108,43 @@ const shortenBtn = document.getElementById('submit-btn');
           let mainClone = shortlyResult.cloneNode(true);
           mainClone.classList.replace("hidden-result", "search-result");
 
+          sessionStorage.setItem("cloneCache", parentNode.innerHTML);
+
+
           //Target clone child elements
           let cloneLink = mainClone.querySelector(".url");
 
           let cloneResultLink = mainClone.querySelector(".link");
+
+          let cloneCopyBtn = mainClone.querySelector(".copy-btn");
+
         
           //Inserts value of input
           cloneLink.textContent = `${input.value}`;
 
+          
+          
+
           //Inserts the shortened link
           cloneResultLink.textContent = `shrtco.de/${shortlyCode}`;
 
+
           parentNode.appendChild(mainClone);
 
+          document.querySelector('.lds-dual-ring').style.display = 'none';
 
-          let cloneCopyBtn = mainClone.querySelector(".copy-btn");
+          
+
 
           // copies shortened link
 
           cloneCopyBtn.addEventListener('click', () => {
+
+
       
               let copiedText = cloneResultLink.textContent;
+
+
       
               navigator.clipboard.writeText(copiedText);
       
@@ -143,11 +172,9 @@ const shortenBtn = document.getElementById('submit-btn');
  
 
   
+ 
 
-
-
-
-
+  
 
 
 
